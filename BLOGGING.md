@@ -5,6 +5,17 @@ to the live database — the site reads from Firestore on every page load, so
 there's nothing to rebuild or redeploy. You still write posts as Markdown
 files locally; `scripts/add-post.mjs` is what uploads them.
 
+## 0. The easiest way: the Admin panel
+
+If typing Markdown and running Termux commands has been painful, use this instead — it needs nothing but your phone's browser.
+
+1. Go to `https://your-site.vercel.app/admin`
+2. Log in with the admin email/password you created in Firebase (see `SETUP.md` step 8)
+3. Fill in the form (title, description, category, tags, cover image, content, published toggle) and hit **Save post**
+4. It's live immediately — no git, no Termux, no tokens
+
+The same "All posts" list on that page lets you **edit** (click Edit, change fields, Save again) or **delete** any post. Everything below in this file describes the Termux/Markdown alternative, which still works too — use whichever is easier in the moment.
+
 ## 1. Write a draft
 
 ```bash

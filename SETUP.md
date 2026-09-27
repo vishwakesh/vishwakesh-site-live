@@ -26,7 +26,20 @@ npm install
    downloaded JSON as `firebase-service-account.json` in the project root.
    **Never commit this file** — it's already in `.gitignore`.
 6. In Firestore, go to Rules and paste the contents of `firestore.rules` from
-   this repo, then Publish.
+   this repo, then Publish. Do the same for Storage → Rules with `storage.rules`.
+
+## 8. Create your Admin login (for the `/admin` panel)
+
+1. Firebase Console → **Build → Authentication → Get started**
+2. **Sign-in method** tab → enable **Email/Password**
+3. **Users** tab → **Add user** → enter an email and password you'll remember
+   (this does not need to be a real inbox — it's just your login, e.g.
+   `admin@vishwakesh.space` with a strong password)
+4. That's it — go to `/admin` on your deployed site and log in with those
+   exact credentials.
+
+You are the only person who can create admin users (via the Firebase Console),
+so this stays private to you even though the `/admin` URL itself isn't secret.
 
 ## 4. Local environment
 
