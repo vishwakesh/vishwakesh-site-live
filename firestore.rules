@@ -1,0 +1,13 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Anyone can read a post, but only if it's published.
+    // All writes go through scripts/add-post.mjs using the Admin SDK,
+    // which always has full access and ignores these rules — so no
+    // client (browser) is ever allowed to write here.
+    match /posts/{postId} {
+      allow read: if resource.data.published == true;
+      allow write: if false;
+    }
+  }
+}

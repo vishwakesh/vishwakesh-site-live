@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* stored as "R G B" channels so Tailwind's rgb(var(--x) / <alpha-value>) opacity modifiers work */
+  --cream: 250 247 240;
+  --ink: 22 26 46;
+  --ink-soft: 75 81 112;
+  --indigo: 58 63 242;
+  --line: 22 26 46;
+  --card: 255 255 255;
+  --shadow: 0 1px 2px rgba(22, 26, 46, 0.04), 0 8px 24px rgba(22, 26, 46, 0.06);
+}
+
+.dark {
+  --cream: 18 19 28;
+  --ink: 242 241 248;
+  --ink-soft: 166 169 196;
+  --indigo: 125 132 255;
+  --line: 242 241 248;
+  --card: 26 28 43;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  background: rgb(var(--cream));
+  color: rgb(var(--ink));
+  transition: background 0.3s, color 0.3s;
+}
+
+.card {
+  background: rgb(var(--card));
+  border: 1px solid rgb(var(--line) / 0.1);
+  box-shadow: var(--shadow);
+}
+
+.article-body { line-height: 1.75; max-width: 68ch; }
+.article-body h1, .article-body h2, .article-body h3 { font-family: var(--font-display); margin: 1.5em 0 0.5em; }
+.article-body p { margin: 0 0 1em; color: rgb(var(--ink)); }
+.article-body a { color: rgb(var(--indigo)); text-decoration: underline; }
+.article-body code { background: rgb(var(--indigo) / 0.1); color: rgb(var(--indigo)); padding: 0.15em 0.4em; border-radius: 4px; font-size: 0.9em; }
+.article-body pre { background: rgb(var(--card)); border: 1px solid rgb(var(--line) / 0.1); border-radius: 10px; padding: 1em; overflow-x: auto; }
+.article-body pre code { background: none; padding: 0; color: rgb(var(--ink)); }
+.article-body blockquote { border-left: 3px solid rgb(var(--indigo)); padding-left: 1em; color: rgb(var(--ink-soft)); margin: 1em 0; }
+.article-body ul, .article-body ol { padding-left: 1.4em; margin: 0 0 1em; }
+.article-body img { border-radius: 12px; margin: 1em 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
